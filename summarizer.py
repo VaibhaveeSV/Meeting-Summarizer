@@ -271,18 +271,15 @@ This is a demo summary of your meeting transcript. The actual AI-powered summari
 - Consider using multiple API keys or alternative providers
 - The AI will then provide detailed meeting analysis
 
-**Estimated Reading Time:** {word_count / 200:.1f} minutes
-"""
     
     return demo_summary
 
 def process_transcript_with_retry(transcript, max_retries=3, delay=60):
-    """Process transcript with retry logic for quota errors"""
     for attempt in range(max_retries):
         try:
             result = process_transcript(transcript)
             
-            # Check if it's a quota error
+
             if is_quota_error(result):
                 if attempt < max_retries - 1:
                     time.sleep(delay)
@@ -302,3 +299,4 @@ def process_transcript_with_retry(transcript, max_retries=3, delay=60):
     return "Maximum retry attempts reached." 
 
     
+
