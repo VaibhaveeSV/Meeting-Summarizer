@@ -2,13 +2,12 @@ import streamlit as st
 from summarizer import process_transcript
 from dotenv import load_dotenv
 
-# Load API key
 load_dotenv()
 
 st.set_page_config(page_title="Meeting Summarizer", layout="wide")
 st.title(" Gemini-Powered Meeting Summarizer")
 
-st.markdown("Paste your meeting transcript below 👇")
+st.markdown("Paste your meeting transcript below")
 
 transcript = st.text_area("Meeting Transcript", height=300)
 
@@ -20,3 +19,4 @@ if st.button("Summarize"):
             result = process_transcript(transcript)
         st.subheader(" AI Output")
         st.markdown(result)
+
